@@ -691,7 +691,7 @@ footer .footer-content p {
 }
 
 .demo-header .demo-header-content .btn.btn-2 {
-  background: #0bceaf;
+  background: #CC1817;
 }
 
 .sec-title {
@@ -861,7 +861,7 @@ footer .footer-content p {
 
 .maha-features .feature-item img {
   width: 50px;
-  background: #0bceaf08;
+  background: #CC181708;
   padding: 10px;
   border-radius: 4px;
 }
@@ -909,14 +909,14 @@ footer .footer-content p {
   padding: 12px 60px;
   border-radius: 50px;
   display: inline-block;
-  background-color: #0bceaf;
+  background-color: #CC1817;
   color: #ffffff !important;
   outline: 0;
   border: none;
   -webkit-transition: .5s ease;
   transition: .5s ease;
   text-decoration: none;
-  border: 2px solid #0bceaf;
+  border: 2px solid #CC1817;
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: normal;
   font-size: 18px;
