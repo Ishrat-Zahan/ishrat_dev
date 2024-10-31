@@ -1,67 +1,4 @@
-/*------------- 
-[Table of contents]
 
-[ DEFULT INDEX NUMBER ]
-
-1.  GENERAL CSS
-2.  NAVBAR
-4.  HOME
-5.  SERVICE
-6.  ABOUT
-7.  TESTIMONIAL
-8.  FAQ
-9.  QUATE
-10. SUBSCRIBE
-11. PRICING
-12. BLOG
-13. FOOTER
-14. COPYRIGHT
-
-
--------------------------------------------------------------------*/
-/*------------------------------------------------------------------
-[ Color codes ]
-    
-    [ Text and Background Color ]
-        Main color 1:       #1c93e5     
-        Main color 2:       #009688      
-        Main color 3:       #9c27b0
-        Main color 4:       #ff4081      
-        Background 1:       #FFFFFF            
-        Background 2:       #F6F6F6           
-        Shadow color:       black000;            
-
--------------------------------------------------------------------*/
-/*------------------------------------------------------------------
-[Typography]
-
-    [ There are using two different font typography ]
-        Typography 1: Roboto font;
-        Typography 2: Montserrat font;
-
-    [ Other Typography style are same ]
-    Body :
-        font-style:     normal;
-        font-size:      15px;
-
-    h2:
-        font-size: 48px;
-        line-height: 55px;
-
-    h3:
-        font-size: 30px;
-        line-height: 40px;
-
-    h4:
-        font-size: 20px;
-        font-weight: 600;
-
-    p:  
-        font-size: 18px;
-        line-height: 30px;
-
-
--------------------------------------------------------------------*/
 /*
 ================
  VARIABLES
@@ -96,8 +33,8 @@ body {
   overflow-x: hidden !important;
   text-align: left;
   position: relative;
-  color: #999999;
-  opacity: 0.9;
+  /* color: #999999; */
+  /* opacity: 0.9; */
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -1410,13 +1347,13 @@ li .fa {
   color: #CC1817;
 }
 
-.nav-3 .navbar-dark .navbar-nav .nav-link a {
+/* .nav-3 .navbar-dark .navbar-nav .nav-link a {
   color: rgba(255, 255, 255, 0.7);
 }
 
 .nav-3 .navbar-dark .navbar-nav .nav-link.active a {
   color: rgba(255, 255, 255, 0.7);
-}
+} */
 
 .nav-3 .navbar-nav {
   padding-top: 30px;

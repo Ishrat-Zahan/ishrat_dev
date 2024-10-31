@@ -56,93 +56,129 @@
   <link rel="alternate stylesheet" href="assets/css/colors/slate.css" title="slate">
   <link rel="alternate stylesheet" href="assets/css/colors/yellow.css" title="yellow">
   <style>
-    /* Styling the card */
-    .project-card {
-      border-radius: 15px;
-      overflow: hidden;
-      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    }
+/* General styles */
+.mh-portfolio {
+    padding: 60px 0;
+    background-color: #ffffff; /* Clean white background */
+}
 
-    /* On hover effect */
-    .project-card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-    }
+/* Section title styling */
+.section-title {
+    margin-bottom: 40px; /* Space below title */
+}
 
-    /* Styling the image wrapper */
-    .card-img-wrapper {
-      height: 200px;
-      overflow: hidden;
-      border-bottom: 4px solid #CC1817;
-    }
+.title {
+    font-size: 2.5rem;
+    color: #CC1817; /* Bold color for the title */
+    font-weight: bold;
+    text-transform: uppercase;
+}
 
-    /* Styling the image */
+.subtitle {
+    font-size: 1.2rem;
+    color: #777; /* Soft gray for subtitle */
+    margin-top: 10px;
+}
+
+/* Project Card */
+.project-card {
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: transform 0.3s ease;
+}
+
+/* Image wrapper */
+.card-img-wrapper {
+    position: relative;
+}
+
+/* Image styling */
+.card-img-top {
+    width: 100%;
+    height: 250px; /* Fixed height for uniformity */
+    object-fit: cover; /* Cover the entire area */
+}
+
+/* Overlay styling */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #CC1817; /* Darker overlay for better visibility */
+    color: white;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px; /* Padding for the overlay */
+}
+
+/* Show overlay on hover */
+.project-card:hover .overlay {
+    opacity: 1; /* Show overlay */
+}
+
+/* Overlay description */
+.overlay-description {
+    font-size: 1rem;
+    margin-bottom: 10px; /* Margin for spacing */
+    text-align: center; /* Center align text */
+}
+
+/* Overlay features list */
+.overlay-features {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.overlay-features li {
+    margin-bottom: 5px; /* Space between items */
+    font-size: 0.9rem;
+    color: #f1f1f1; /* Lighter color for features */
+}
+
+/* Card info styling */
+.card-info {
+    padding: 15px;
+    background: #fff; /* White background for the text */
+    text-align: center; /* Center align text */
+}
+
+/* Title styling */
+.card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333; /* Dark color for title */
+    margin: 0; /* Remove default margin */
+}
+
+/* Technologies styling */
+.technologies {
+    font-size: 0.9rem;
+    color: #666; /* Dark gray for technology text */
+}
+
+/* On hover effect */
+.project-card:hover {
+    transform: scale(1.03); /* Slight scale effect */
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
     .card-img-top {
-      object-fit: cover;
-      height: 100%;
-      width: 100%;
-      transition: transform 0.3s ease-in-out;
+        height: 200px; /* Adjust height for mobile */
     }
-
-    /* On hover image zoom */
-    .project-card:hover .card-img-top {
-      transform: scale(1.1);
+    .overlay-description {
+        font-size: 0.9rem; /* Smaller size for mobile */
     }
+}
 
-    /* Body of the card */
-    .card-body {
-      padding: 20px;
-      background: linear-gradient(135deg, #ffffff, #f9f9f9);
-    }
-
-    /* Title styling */
-    .card-title {
-      font-weight: 600;
-      color: #333;
-      margin-bottom: 10px;
-    }
-
-    /* Subtitle styling */
-    .card-subtitle {
-      font-size: 0.9rem;
-    }
-
-    /* List of features */
-    .card-features {
-      list-style-type: none;
-      padding-left: 0;
-      margin: 15px 0;
-    }
-
-    .card-features li {
-      margin-bottom: 8px;
-      color: #666;
-      font-size: 0.9rem;
-    }
-
-    /* Button styling */
-    .btn-outline-primary {
-      border: 2px solid #CC1817;
-      color: #CC1817;
-      font-weight: bold;
-      transition: all 0.3s ease;
-    }
-
-    .btn-outline-primary:hover {
-      background-color: #e21d1d;
-      color: white;
-    }
-
-    /* Responsive adjustments */
-    @media (max-width: 767px) {
-      .card-img-wrapper {
-        height: 150px;
-      }
-
-      .card-body {
-        padding: 15px;
-      }
-    }
   </style>
 
 </head>
@@ -528,117 +564,142 @@
            PORTFOLIO
         ===================
         -->
-  <section class="mh-portfolio" id="mh-portfolio">
-    <div class="container">
-      <div class="row section-separator">
-        <div class="section-title col-sm-12 wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.1s">
-          <h3>My Projects</h3>
-        </div>
-
-        <!-- Project Grid -->
-        <div class="row">
-
-          <!-- Project 1 -->
-          <div class="col-md-4 col-sm-6 mb-4 wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.3s">
-            <div class="project-card card shadow-sm">
-              <a href="https://bfsa.rdtl.xyz/">
-                <div class="card-img-wrapper">
-                  <img class="card-img-top" src="assets/images/portfolio/1.png" alt="Project 1">
-                </div>
-                <div class="card-body">
-                  <h5 class="card-title">Learning Management System (Govt. Project)</h5>
-                  <p class="card-subtitle mb-2 text-muted">Technologies: <strong>PHP, Laravel, Vue.js, MySQL</strong>
-                  </p>
-                  <ul class="card-features">
-                    <li>Course enrollment</li>
-                    <li>Payment gateway integration</li>
-                    <li>Social media sharing</li>
-                    <li>Dashboards (Admin & Customer)</li>
-                    <li>Quizzes, result grading, progress tracking</li>
-                  </ul>
-                  <a href="project-link-1" class="btn btn-outline-danger btn-block">View Project</a>
-                </div>
-              </a>
-            </div>
-          </div>
-
-          <div class="col-md-4 col-sm-6 mb-4 wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.3s">
-            <div class="project-card card shadow-sm">
-              <a href="#">
-                <div class="card-img-wrapper">
-                  <img class="card-img-top" src="assets/images/portfolio/er3.PNG" alt="Project 1">
-                </div>
-                <div class="card-body">
-                  <h5 class="card-title">Eastern Refinery Data Entry Software (Govt. Project)</h5>
-                  <p class="card-subtitle mb-2 text-muted">Technologies: <strong> C#, ASP.Net, SQL</strong></p>
-                  <ul class="card-features">
-                    <li>Streamlined data entry forms for metrics</li>
-                    <li>Automated calculations for oil flow and output</li>
-                    <li>Customizable reports for various timeframes</li>
-                    <li>Error-checking for accurate data input</li>
-                    <li>Data visualization for performance insights</li>
-                    
-                  </ul>
-                  <a href="project-link-1" class="btn btn-outline-danger btn-block">View Project</a>
+        <section class="mh-portfolio" id="mh-portfolio">
+          <div class="container">
+              <div class="row section-separator">
+                  <div class="section-title col-sm-12 text-center wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.1s">
+                      <h3 class="title">My Projects</h3>
+                      <p class="subtitle">Explore my latest projects showcasing my skills and the technologies used.</p>
+                  </div>
+      
+                  <!-- Project Grid -->
+                  <div class="row">
+      
+                      <!-- Project 1 -->
+                      <div class="col-md-4 col-sm-6 mb-4 wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.3s">
+                          <div class="project-card">
+                              <div class="card-img-wrapper">
+                                  <img class="card-img-top" src="assets/images/portfolio/1.png" alt="Learning Management System">
+                                  <div class="overlay">
+                                      <p class="overlay-description">An online platform for managing courses, student enrollments, and payments.</p>
+                                      <ul class="overlay-features">
+                                          <li>Course enrollment</li>
+                                          <li>Payment integration</li>
+                                          <li>Social sharing</li>
+                                          <li>Admin & Customer dashboards</li>
+                                          <li>Quizzes & tracking</li>
+                                      </ul>
+                                  </div>
+                              </div>
+                              <div class="card-info p-1">
+                                  <h5 class="card-title">Learning Management System</h5>
+                                  <p class="technologies">Technologies: PHP, Laravel, Vue.js, MySQL</p>
+                              </div>
+                          </div>
+                      </div>
+      
+                      <!-- Project 2 -->
+                      <div class="col-md-4 col-sm-6 mb-4 wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.4s">
+                          <div class="project-card">
+                              <div class="card-img-wrapper">
+                                  <img class="card-img-top" src="assets/images/portfolio/er3.PNG" alt="Eastern Refinery Data Entry Software">
+                                  <div class="overlay">
+                                      <p class="overlay-description">Streamlined software for data entry and reporting for Eastern Refinery.</p>
+                                      <ul class="overlay-features">
+                                          <li>Streamlined data entry</li>
+                                          <li>Automated calculations</li>
+                                          <li>Customizable reports</li>
+                                          <li>Data validation</li>
+                                          <li>Performance insights</li>
+                                      </ul>
+                                  </div>
+                              </div>
+                              <div class="card-info p-1">
+                                  <h5 class="card-title">Eastern Refinery Data Entry Software</h5>
+                                  <p class="technologies">Technologies: C#, ASP.Net, SQL</p>
+                              </div>
+                          </div>
+                      </div>
+      
+                      <!-- Project 3 -->
+                      <div class="col-md-4 col-sm-6 mb-4 wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.5s">
+                          <div class="project-card">
+                              <div class="card-img-wrapper">
+                                  <img class="card-img-top" src="assets/images/portfolio/ecom.png" alt="Multi-Vendor E-commerce Platform">
+                                  <div class="overlay">
+                                      <p class="overlay-description">A platform enabling multiple vendors to sell their products online.</p>
+                                      <ul class="overlay-features">
+                                          <li>Product listing</li>
+                                          <li>Shopping cart</li>
+                                          <li>Payment gateway</li>
+                                          <li>User accounts</li>
+                                          <li>Order tracking</li>
+                                      </ul>
+                                  </div>
+                              </div>
+                              <div class="card-info p-1">
+                                  <h5 class="card-title">Multi-Vendor E-commerce Platform</h5>
+                                  <p class="technologies">Technologies: React, Laravel, MySQL</p>
+                              </div>
+                          </div>
+                      </div>
+      
+                      <!-- Project 4 -->
+                      <div class="col-md-4 col-sm-6 mb-4 wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.6s">
+                          <div class="project-card">
+                              <div class="card-img-wrapper">
+                                  <img class="card-img-top" src="assets/images/portfolio/web.png" alt="Company Website">
+                                  <div class="overlay">
+                                      <p class="overlay-description">An interactive website for showcasing company services and teams.</p>
+                                      <ul class="overlay-features">
+                                          <li>Interactive UI/UX</li>
+                                          <li>Responsive design</li>
+                                          <li>Team management</li>
+                                          <li>Job postings</li>
+                                          <li>Email integration</li>
+                                      </ul>
+                                  </div>
+                              </div>
+                              <div class="card-info p-1">
+                                  <h5 class="card-title">Company Website</h5>
+                                  <p class="technologies">Technologies: Laravel, JavaScript, jQuery</p>
+                              </div>
+                          </div>
+                      </div>
+      
+                      <!-- Project 5 -->
+                      <div class="col-md-4 col-sm-6 mb-4 wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.7s">
+                          <div class="project-card">
+                              <div class="card-img-wrapper">
+                                  <img class="card-img-top" src="assets/images/portfolio/your_project_image.png" alt="Your Project Title">
+                                  <div class="overlay">
+                                      <p class="overlay-description">A brief description of your project highlighting its main features.</p>
+                                      <ul class="overlay-features">
+                                          <li>Feature 1</li>
+                                          <li>Feature 2</li>
+                                          <li>Feature 3</li>
+                                          <li>Feature 4</li>
+                                          <li>Feature 5</li>
+                                      </ul>
+                                  </div>
+                              </div>
+                              <div class="card-info p-1">
+                                  <h5 class="card-title">Your Project Title</h5>
+                                  <p class="technologies">Technologies: Your, Technologies, Here</p>
+                              </div>
+                          </div>
+                      </div>
+      
+                  </div>
               </div>
-              
-              </a>
-            </div>
           </div>
-
-          <!-- Project 2 -->
-          <div class="col-md-4 col-sm-6 mb-4 wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.4s">
-            <div class="project-card card shadow-sm">
-              <div class="card-img-wrapper">
-                <img class="card-img-top" src="assets/images/portfolio/ecom.png" alt="Project 2">
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Multi-Vendor E-commerce Platform (Cts Group)</h5>
-                <p class="card-subtitle mb-2 text-muted">Technologies: <strong>React, Laravel, MySQL</strong></p>
-                <ul class="card-features">
-                  <li>Product listing and management</li>
-                  <li>Shopping cart and checkout system</li>
-                  <li>Payment gateway integration</li>
-                  <li>User accounts and order tracking</li>
-                  <li>Admin and vendor management</li>
-                </ul>
-                <a href="project-link-2" class="btn btn-outline-danger btn-block">View Project</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Project 3 -->
-          <div class="col-md-4 col-sm-6 mb-4 wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.5s">
-            <a href="https://website.ctsgroupbd.com/">
-              <div class="project-card card shadow-sm">
-                <div class="card-img-wrapper">
-                  <img class="card-img-top" src="assets/images/portfolio/web.png" alt="Project 3">
-                </div>
-                <div class="card-body">
-                  <h5 class="card-title">Company Website</h5>
-                  <p class="card-subtitle mb-2 text-muted">Technologies: <strong>Laravel, JavaScript, jQuery</strong>
-                  </p>
-                  <ul class="card-features">
-
-                    <li>Interactive UI/UX</li>
-                    <li>Responsive design</li>
-                    <li>Dynamic Team Manage</li>
-                    <li>Job Post</li>
-                    <li>Job Response</li>
-                    <li>Contact form with email integration</li>
-                  </ul>
-                  <a href="project-link-3" class="btn btn-outline-danger btn-block">View Project</a>
-                </div>
-              </div>
-            </a>
-
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </section>
-
+      </section>
+      
+      
+      
+      
+      
+      
 
   <!--
         ===================
@@ -664,7 +725,7 @@
                 <li>API Development</li>
                 <li>Modification</li>
               </ul>
-              <a href="#" class="btn btn-fill">Hire Me</a>
+              <a href="https://www.fiverr.com/s/Zm20w04" class="btn btn-fill">Hire Me</a>
             </div>
           </div>
 
@@ -681,7 +742,7 @@
                 <li>API Development</li>
                 <li>Modification</li>
               </ul>
-              <a href="#" class="btn btn-fill">Hire Me</a>
+              <a href="https://www.fiverr.com/s/Zm20w04" class="btn btn-fill">Hire Me</a>
             </div>
           </div>
 
@@ -697,7 +758,7 @@
                 <li>API Development</li>
                 <li>Modification</li>
               </ul>
-              <a href="#" class="btn btn-fill">Hire Me</a>
+              <a href="https://www.fiverr.com/s/Zm20w04" class="btn btn-fill">Hire Me</a>
             </div>
           </div>
 
